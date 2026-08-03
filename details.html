@@ -38,20 +38,20 @@
 
       <div class="cards-grid">
         <article class="feature-card">
-          <h3>Algorithmic backbone</h3>
-          <p>Core models include XGBoost and LightGBM, optimized for structured financial feature sets and efficient gradient boosting.</p>
+          <h3>XGBoost architecture</h3>
+          <p>My XGBoost model consists of 300 sequential regression trees. Each tree has a maximum depth of four and attempts to correct the prediction errors remaining from the previous trees. The learning rate limits each tree to 5% of its proposed adjustment, and the model minimizes squared error to produce a predicted next-quarter log return using RMSE.</p>
         </article>
         <article class="feature-card">
-          <h3>Meta and ensemble synthesis</h3>
-          <p>Meta-modeling layers combine base learners into a consensus signal that improves stability across market regimes.</p>
+          <h3>LightGBM robustness</h3>
+          <p>LightGBM uses a similar gradient boosting framework, with each tree trained on 90% of observations and 80% of features. This randomness reduces overfitting, while Huber loss adds robustness to extreme residuals and supports more stable predictions for equity return forecasting.</p>
         </article>
         <article class="feature-card">
-          <h3>Out-of-fold validation</h3>
-          <p>Out-of-fold (OOF) cross-validation ensures the model is tested on unseen partitions and reduces overfitting risk.</p>
+          <h3>Meta learner</h3>
+          <p>The meta learner synthesizes base model outputs and is tuned using RMSE to prioritize predictive accuracy. It blends the signal from XGBoost and LightGBM into a consolidated prediction that improves confidence for next-quarter return estimates.</p>
         </article>
         <article class="feature-card">
-          <h3>Robust error metrics</h3>
-          <p>Performance is measured using RMSE, Huber loss, and custom portfolio-level diagnostics to support decision-grade output.</p>
+          <h3>OOF validation</h3>
+          <p>Out-of-fold validation is applied to the SGB and LGB models only. OOF ensures each observation is evaluated on a model that was not trained on it, which is critical for measuring true generalization and preventing overfit in the gradient boosting stacks.</p>
         </article>
       </div>
     </section>

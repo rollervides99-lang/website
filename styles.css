@@ -186,6 +186,85 @@ body {
   color: var(--muted);
 }
 
+.feature-card h4 {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.feature-card ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+
+.equation {
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  background: rgba(0, 0, 0, 0.18);
+  border-left: 2px solid var(--accent);
+  color: var(--text);
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+
+.methodology-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2.5rem;
+}
+
+.model-comparison {
+  margin-top: 3rem;
+}
+
+.model-comparison h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.model-comparison > p {
+  max-width: 720px;
+  color: var(--muted);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+th,
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+td {
+  color: var(--muted);
+}
+
+td:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .section-dark {
   background: #0b1220;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -260,6 +339,10 @@ body {
 
   .header-top {
     align-items: flex-start;
+  }
+
+  .methodology-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -15,47 +15,12 @@
       </div>
       <nav class="nav-links">
         <a href="index.html">Home</a>
+        <a href="methodology.html">Research methodology</a>
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
 
-    <div class="hero-panel container">
-      <div class="hero-copy">
-        <p class="eyebrow">Technical overview</p>
-        <h1>Quantitative research with machine learning and portfolio-grade analytics.</h1>
-        <p class="hero-text">This page captures Dakota’s advanced modeling approach, error metrics, and data validation practices for equity insights.</p>
-      </div>
-    </div>
   </header>
-
-  <main>
-    <section class="section container">
-      <div class="section-intro">
-        <p class="eyebrow">Project highlights</p>
-        <h2>Modeling and validation at the center.</h2>
-        <p>Dakota uses ensemble learning and systematic model evaluation to generate robust equity signals with measurable out-of-sample performance.</p>
-      </div>
-
-      <div class="cards-grid">
-        <article class="feature-card">
-          <h3>XGBoost architecture</h3>
-          <p>My XGBoost model consists of 300 sequential regression trees. Each tree has a maximum depth of four and attempts to correct the prediction errors remaining from the previous trees. The learning rate limits each tree to 5% of its proposed adjustment. Each tree is trained on 90% of the observations and 80% of the features, which adds randomness and reduces overfitting. L2 regularization (lambda) is set to 1.5 to shrink extreme leaf predictions. The model minimizes squared error and produces a predicted next-quarter log return; performance is evaluated with RMSE.</p>
-        </article>
-        <article class="feature-card">
-          <h3>LightGBM robustness</h3>
-          <p>LightGBM follows a comparable boosting approach with feature- and sample-level randomness (90% of observations, 80% of features per tree). For LightGBM we optimize Huber loss to reduce sensitivity to large residuals and improve robustness in heavy-tailed return distributions. Regularization and early stopping are applied to control complexity and maintain stable out-of-sample behavior.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Meta learner</h3>
-          <p>The meta learner ingests out-of-fold predictions from the base learners and is trained to minimize RMSE. By weighting and combining XGBoost and LightGBM outputs, the meta layer produces a consolidated signal with improved predictive accuracy for next-quarter log returns.</p>
-        </article>
-        <article class="feature-card">
-          <h3>OOF validation</h3>
-          <p>Out-of-fold (OOF) validation is applied to the SGB and LGB base learners only. OOF ensures that each observation is evaluated on predictions from models that did not see that observation during training, providing an unbiased estimate of generalization and reducing the risk of overfit when stacking models.</p>
-        </article>
-      </div>
-    </section>
-  </main>
 
   <footer class="footer">
     <div class="container footer-inner">

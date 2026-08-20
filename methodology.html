@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Methodology | Roberto Ollervides</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-top">
+      <div class="brand">
+        <span class="brand-flag">Dakota</span>
+        <span class="brand-name">Roberto Ollervides</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="details.html">Learn more</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="hero-panel container">
+      <div class="hero-copy">
+        <p class="eyebrow">Research methodology</p>
+        <h1>A disciplined path from market question to investment signal.</h1>
+        <p class="hero-text">Dakota’s research process combines careful data preparation, transparent modeling, and out-of-sample validation so every conclusion can be reviewed with confidence.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="section-intro">
+        <p class="eyebrow">Purpose</p>
+        <h2>Quantitative validation for fundamental research.</h2>
+        <p>Dakota is a quantitative research platform designed to complement traditional fundamental equity research. Investment ideas originate from research analysts through fundamental analysis, while Dakota provides an independent, data-driven assessment of expected quarterly returns, probability of price appreciation, and forecast uncertainty.</p>
+        <p>Rather than replacing analyst judgment, the framework serves as an additional layer of quantitative validation, helping analysts evaluate whether market expectations and valuation assumptions are supported by historical financial patterns identified through machine learning.</p>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Modeling toolkit</p>
+          <h2>Different models, one stronger signal.</h2>
+          <p>Dakota combines probabilistic and tree-based methods to capture uncertainty, nonlinear relationships, and complementary patterns in financial data.</p>
+        </div>
+
+        <div class="cards-grid methodology-grid">
+          <article class="feature-card">
+            <h3>Bayesian Regression</h3>
+            <p>Bayesian Regression models the relationship between financial features and future stock returns while explicitly quantifying prediction uncertainty. Rather than estimating a single coefficient for each feature, Bayesian inference estimates a posterior probability distribution, allowing the model to produce both an expected return and a credible interval.</p>
+            <h4>Objective</h4>
+            <div class="equation">P(&theta; | D) = P(D | &theta;)P(&theta;) / P(D)</div>
+            <ul>
+              <li><strong>P(&theta;)</strong> = Prior distribution</li>
+              <li><strong>P(D | &theta;)</strong> = Likelihood</li>
+              <li><strong>P(&theta; | D)</strong> = Posterior distribution</li>
+            </ul>
+            <h4>Role in Dakota</h4>
+            <ul>
+              <li>Probabilistic forecasting</li>
+              <li>Prediction uncertainty estimation</li>
+              <li>Robust inference under noisy financial data</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>XGBoost</h3>
+            <p>XGBoost is a gradient-boosted decision tree algorithm designed to capture complex nonlinear relationships between financial variables. Trees are added sequentially, with each new tree learning from the residual errors of the previous ensemble.</p>
+            <h4>Prediction function</h4>
+            <div class="equation">ŷ = &sum;<sub>m=1</sub><sup>M</sup> f<sub>m</sub>(x)</div>
+            <p>Each <em>f<sub>m</sub>(x)</em> represents an individual regression tree.</p>
+            <h4>Objective function</h4>
+            <div class="equation">L = &sum;<sub>i</sub> l(y<sub>i</sub>, ŷ<sub>i</sub>) + &sum;<sub>m</sub> &Omega;(f<sub>m</sub>)</div>
+            <ul>
+              <li><strong>l(&middot;)</strong> measures prediction error</li>
+              <li><strong>&Omega;(f)</strong> penalizes model complexity</li>
+            </ul>
+            <h4>Role in Dakota</h4>
+            <ul>
+              <li>Nonlinear feature interaction learning</li>
+              <li>High predictive accuracy</li>
+              <li>Automatic handling of complex financial relationships</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>LightGBM</h3>
+            <p>LightGBM is a gradient boosting framework optimized for computational efficiency. Unlike traditional level-wise tree growth, LightGBM expands the leaf that produces the greatest reduction in prediction error, allowing faster training while maintaining strong predictive performance.</p>
+            <h4>Objective function</h4>
+            <div class="equation">L = &sum;<sub>i</sub> l(y<sub>i</sub>, ŷ<sub>i</sub>) + &Omega;(f)</div>
+            <p>LightGBM differs from XGBoost primarily in its leaf-wise tree growth strategy, enabling faster learning on large financial datasets.</p>
+            <h4>Role in Dakota</h4>
+            <ul>
+              <li>Efficient large-scale learning</li>
+              <li>Complementary nonlinear modeling</li>
+              <li>Ensemble diversification</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="model-comparison">
+          <h3>Why multiple models?</h3>
+          <p>Dakota combines multiple machine learning algorithms because no single model captures every aspect of financial markets.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Primary contribution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Bayesian Regression</td>
+                  <td>Probabilistic forecasting and uncertainty estimation</td>
+                </tr>
+                <tr>
+                  <td>XGBoost</td>
+                  <td>Nonlinear pattern recognition</td>
+                </tr>
+                <tr>
+                  <td>LightGBM</td>
+                  <td>Efficient gradient boosting and complementary predictions</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>By combining independent forecasting models, Dakota reduces model-specific bias and produces more robust estimates of future quarterly stock returns.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>rollervides.com</p>
+    </div>
+  </footer>
+</body>
+</html>

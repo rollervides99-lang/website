@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,8 +7,7 @@
   <meta name="build" content="2026-10-08-v2" />
   <title>Performance | Dakota</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
-</head>
+  </head>
 <body>
   <header class="site-header performance-hero">
     <div class="container header-top">
@@ -28,7 +27,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Performance record</p>
         <h1>Measured outcomes. Transparent signals.</h1>
-        <p class="hero-text">A disciplined view of Dakota’s monthly model results, probability estimates, and current research watchlist. Each period is presented as a documented result—not as a guarantee of future performance.</p>
+        <p class="hero-text">A disciplined view of Dakotaâ€™s monthly model results, probability estimates, and current research watchlist. Each period is presented as a documented resultâ€”not as a guarantee of future performance.</p>
       </div>
     </div>
   </header>
@@ -39,7 +38,7 @@
         <div>
           <p class="eyebrow">Cumulative view</p>
           <h2 id="performance-summary-title">Performance since July</h2>
-          <p>Comparing the reported S&amp;P 500 return with Dakota’s model result.</p>
+          <p>Comparing the reported S&amp;P 500 return with Dakotaâ€™s model result.</p>
         </div>
         <span class="performance-period">Through September</span>
       </div>
@@ -90,7 +89,7 @@
               </ul>
             </div>
             <a class="month-sheet-link" href="Dakota_July_2026_Backtest.csv" download="Dakota_July_2026_Backtest.csv">
-              <span aria-hidden="true">↓</span> Summary Sheet - July
+              <span aria-hidden="true">â†“</span> Summary Sheet - July
             </a>
           </article>
 
@@ -113,7 +112,7 @@
               </ul>
             </div>
             <a class="month-sheet-link" href="Dakota_August_2026_Contributions.csv" download="Dakota_August_2026_Contributions.csv">
-              <span aria-hidden="true">↓</span> Summary Sheet - August
+              <span aria-hidden="true">â†“</span> Summary Sheet - August
             </a>
           </article>
 
@@ -136,7 +135,7 @@
               </ul>
             </div>
             <a class="month-sheet-link" href="Dakota_September_2026_Target_Audit.csv" download="Dakota_September_2026_Target_Audit.csv">
-              <span aria-hidden="true">↓</span> Summary Sheet - September
+              <span aria-hidden="true">â†“</span> Summary Sheet - September
             </a>
           </article>
         </div>
@@ -185,69 +184,13 @@
             <p>Get the full July investment, exit strategy, forecast, target, realized return, and weight detail as a downloadable CSV file.</p>
           </div>
           <a class="button download-button" id="july-csv-download" href="https://raw.githubusercontent.com/rollervides99-lang/website/master/Dakota_July_2026_Backtest.csv" download="Dakota_July_2026_Backtest.csv">
-            <span aria-hidden="true">↓</span> Download CSV
+            <span aria-hidden="true">â†“</span> Download CSV
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark data-import-section" aria-labelledby="data-import-title">
-      <div class="container">
-        <div class="performance-section-heading">
-          <div>
-            <p class="eyebrow">Data management</p>
-            <h2 id="data-import-title">Update performance data</h2>
-            <p>Upload a CSV, XLSX, or XLS file. Your spreadsheet remains in your browser and is never uploaded to a server.</p>
-          </div>
-        </div>
-
-        <div class="import-panel">
-          <div class="import-controls">
-            <label class="file-picker" for="spreadsheet-input">
-              <span class="file-picker-icon" aria-hidden="true">↑</span>
-              <span>
-                <strong>Choose a spreadsheet</strong>
-                <small>CSV, XLSX, or XLS · Maximum 10 MB</small>
-              </span>
-            </label>
-            <input id="spreadsheet-input" type="file" accept=".csv,.xlsx,.xls" hidden />
-            <button id="import-button" class="button" type="button" disabled>Import data</button>
-          </div>
-
-          <div id="import-status" class="import-status" role="status" aria-live="polite">
-            <strong>Ready for a spreadsheet</strong>
-            <p>Use columns named Month, S&amp;P 500, Dakota, Probability, and Tickers.</p>
-          </div>
-
-          <div id="import-preview" class="import-preview" hidden>
-            <div class="preview-heading">
-              <h3>Import preview</h3>
-              <span id="preview-count">0 rows</span>
-            </div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Month</th>
-                    <th>S&amp;P 500</th>
-                    <th>Dakota</th>
-                    <th>Probability</th>
-                    <th>Tickers</th>
-                  </tr>
-                </thead>
-                <tbody id="preview-body"></tbody>
-              </table>
-            </div>
-            <p class="preview-note">Review the imported values before applying them to the page.</p>
-            <div class="preview-actions">
-              <button id="apply-button" class="button" type="button">Apply to page</button>
-              <button id="cancel-button" class="button secondary" type="button">Cancel</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+    </main>
 
   <footer class="footer">
     <div class="container footer-inner">
@@ -255,225 +198,6 @@
     </div>
   </footer>
 
-  <script>
-    (() => {
-      const fileInput = document.getElementById('spreadsheet-input');
-      const importButton = document.getElementById('import-button');
-      const applyButton = document.getElementById('apply-button');
-      const cancelButton = document.getElementById('cancel-button');
-      const status = document.getElementById('import-status');
-      const preview = document.getElementById('import-preview');
-      const previewBody = document.getElementById('preview-body');
-      const previewCount = document.getElementById('preview-count');
-      const monthCards = [...document.querySelectorAll('.month-card')];
-      const monthNames = ['July', 'August', 'September'];
-      let importedRows = [];
-      let selectedFileName = '';
 
-      const normalizeHeader = (value) => String(value || '')
-        .trim()
-        .toLowerCase()
-        .replace(/&/g, ' and ')
-        .replace(/[^a-z0-9]+/g, ' ')
-        .trim();
-
-      const findColumn = (headers, names) => {
-        const normalized = headers.map(normalizeHeader);
-        return names.map((name) => normalized.indexOf(normalizeHeader(name)));
-      };
-
-      const parseNumber = (value) => {
-        const text = String(value ?? '').replace(/[$,%]/g, '').replace(/,/g, '').trim();
-        if (!text) return null;
-        const number = Number(text);
-        return Number.isFinite(number) ? number : null;
-      };
-
-      const setStatus = (message, detail, type = 'neutral') => {
-        status.className = `import-status ${type}`;
-        status.innerHTML = `<strong>${message}</strong><p>${detail}</p>`;
-      };
-
-      const formatProbability = (value) => {
-        const number = parseNumber(value);
-        if (number === null) return '—';
-        return `${number}% probability`;
-      };
-
-      const formatTickerList = (value) => String(value ?? '').split(/[;,|]/).map((item) => item.trim()).filter(Boolean);
-
-      const escapeHtml = (value) => String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-
-      const rowsToObjects = (rows) => {
-        const headers = rows.length ? Object.keys(rows[0]) : [];
-        const columns = findColumn(headers, ['month', 'sp 500', 'dakota', 'probability', 'tickers']);
-        if (columns.some((index) => index < 0)) {
-          throw new Error('The spreadsheet must include Month, S&P 500, Dakota, Probability, and Tickers columns.');
-        }
-
-        return rows.map((row) => ({
-          month: String(row[headers[columns[0]]] ?? '').trim(),
-          sp500: parseNumber(row[headers[columns[1]]]),
-          dakota: parseNumber(row[headers[columns[2]]]),
-          probability: String(row[headers[columns[3]]] ?? '').trim(),
-          tickers: formatTickerList(row[headers[columns[4]]])
-        })).filter((row) => row.month && row.sp500 !== null && row.dakota !== null);
-      };
-
-      const parseCsv = (text) => {
-        const rows = [];
-        let row = [];
-        let cell = '';
-        let quoted = false;
-
-        for (let index = 0; index < text.length; index += 1) {
-          const character = text[index];
-          const next = text[index + 1];
-
-          if (character === '"') {
-            if (quoted && next === '"') {
-              cell += '"';
-              index += 1;
-            } else {
-              quoted = !quoted;
-            }
-          } else if (character === ',' && !quoted) {
-            row.push(cell);
-            cell = '';
-          } else if ((character === '\n' || character === '\r') && !quoted) {
-            if (character === '\r' && next === '\n') index += 1;
-            row.push(cell);
-            if (row.some((value) => value.trim())) rows.push(row);
-            row = [];
-            cell = '';
-          } else {
-            cell += character;
-          }
-        }
-
-        if (cell || row.length) {
-          row.push(cell);
-          if (row.some((value) => value.trim())) rows.push(row);
-        }
-
-        if (!rows.length) throw new Error('The CSV file is empty.');
-        const headers = rows.shift();
-        return rows.map((values) => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ''])));
-      };
-
-      const readSpreadsheet = async (file) => {
-        if (file.size > 10 * 1024 * 1024) throw new Error('The spreadsheet must be smaller than 10 MB.');
-        const extension = file.name.split('.').pop().toLowerCase();
-        if (!['csv', 'xlsx', 'xls'].includes(extension)) throw new Error('Please choose a CSV, XLSX, or XLS file.');
-
-        if (extension === 'csv') {
-          const text = await file.text();
-          return rowsToObjects(parseCsv(text));
-        }
-
-        if (!window.XLSX) throw new Error('Spreadsheet support could not load. Check your internet connection and try again.');
-        const data = await file.arrayBuffer();
-        const workbook = window.XLSX.read(data, { type: 'array', cellDates: true });
-        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-        const rows = window.XLSX.utils.sheet_to_json(worksheet, { defval: '' });
-        return rowsToObjects(rows);
-      };
-
-      const renderPreview = () => {
-        previewBody.innerHTML = '';
-        importedRows.slice(0, 8).forEach((row) => {
-          const tableRow = document.createElement('tr');
-          tableRow.innerHTML = `
-            <td>${escapeHtml(row.month)}</td>
-            <td>${escapeHtml(row.sp500 ?? '—')}</td>
-            <td>${escapeHtml(row.dakota ?? '—')}</td>
-            <td>${escapeHtml(row.probability)}</td>
-            <td>${escapeHtml(row.tickers.join(', '))}</td>
-          `;
-          previewBody.appendChild(tableRow);
-        });
-        previewCount.textContent = `${importedRows.length} row${importedRows.length === 1 ? '' : 's'}`;
-        preview.hidden = false;
-      };
-
-      const updateCards = () => {
-        monthCards.forEach((card) => {
-          const month = card.querySelector('h3').textContent.toLowerCase();
-          const row = importedRows.find((item) => item.month.toLowerCase() === month);
-          if (!row) return;
-
-          const returns = card.querySelectorAll('.return-row');
-          returns[0].querySelector('strong').textContent = `${row.sp500 >= 0 ? '+' : ''}${row.sp500}`;
-          returns[0].className = `return-row ${row.sp500 >= 0 ? 'positive' : 'negative'}`;
-          returns[1].querySelector('strong').textContent = `${row.dakota >= 0 ? '+' : ''}${row.dakota}`;
-          returns[1].className = `return-row ${row.dakota >= 0 ? 'positive' : 'negative'}`;
-
-          const tickerList = card.querySelector('.ticker-list');
-          tickerList.replaceChildren(...row.tickers.length
-            ? row.tickers.map((ticker) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = ticker;
-                return listItem;
-              })
-            : [document.createTextNode('No tickers provided')]);
-        });
-
-        const compoundReturn = (rows, field) => rows.reduce((total, row) => total * (1 + row[field] / 100), 1) - 1;
-        const sp500Total = compoundReturn(importedRows, 'sp500') * 100;
-        const dakotaTotal = compoundReturn(importedRows, 'dakota') * 100;
-        document.getElementById('cumulative-sp500').textContent = `${sp500Total >= 0 ? '+' : ''}${sp500Total.toFixed(4)}%`;
-        document.getElementById('cumulative-dakota').textContent = `${dakotaTotal >= 0 ? '+' : ''}${dakotaTotal.toFixed(4)}%`;
-        document.getElementById('reporting-periods').textContent = `${importedRows.length} month${importedRows.length === 1 ? '' : 's'}`;
-      };
-
-      fileInput.addEventListener('change', async () => {
-        const file = fileInput.files[0];
-        if (!file) return;
-        selectedFileName = file.name;
-        importButton.disabled = false;
-        preview.hidden = true;
-        setStatus(file.name, 'Spreadsheet selected. Review the parsed data before applying it.');
-
-        try {
-          importedRows = await readSpreadsheet(file);
-          if (!importedRows.length) throw new Error('No valid performance rows were found.');
-          renderPreview();
-          setStatus('Data parsed successfully', `${importedRows.length} valid row${importedRows.length === 1 ? '' : 's'} found in ${selectedFileName}.`);
-        } catch (error) {
-          importedRows = [];
-          importButton.disabled = true;
-          preview.hidden = true;
-          setStatus('Import failed', error.message, 'error');
-        }
-      });
-
-      importButton.addEventListener('click', () => {
-        if (!importedRows.length) return;
-        renderPreview();
-        setStatus('Preview ready', 'Review the data below before applying it to the page.');
-        preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      applyButton.addEventListener('click', () => {
-        updateCards();
-        setStatus('Data applied', `${selectedFileName} replaced the displayed monthly results.`, 'success');
-        preview.hidden = true;
-        document.querySelector('#monthly-results-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      cancelButton.addEventListener('click', () => {
-        importedRows = [];
-        preview.hidden = true;
-        fileInput.value = '';
-        importButton.disabled = true;
-        setStatus('Ready for a spreadsheet', 'Use columns named Month, S&P 500, Dakota, Probability, and Tickers.');
-      });
-    })();
-  </script>
 </body>
 </html>

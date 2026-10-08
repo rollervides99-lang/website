@@ -51,7 +51,7 @@
         </article>
         <article class="performance-metric positive">
           <span>Dakota</span>
-          <strong id="cumulative-dakota">+3.4030%</strong>
+          <strong id="cumulative-dakota">+4.7021%</strong>
         </article>
         <article class="performance-metric">
           <span>Reporting periods</span>
@@ -75,7 +75,7 @@
             <div class="month-card-header">
               <h3>July</h3>
             </div>
-            <div class="return-row positive">
+            <div class="return-row negative">
               <span>S&amp;P 500</span>
               <strong>-0.13%</strong>
             </div>
@@ -89,9 +89,6 @@
                 <li>HROW</li><li>WDAY</li><li>CMG</li><li>005930-KRX</li><li>HD</li><li>CAT</li><li>EOLS</li><li>SIE-ETR</li><li>SHOP</li><li>BAX</li><li>2330-TAI</li><li>AAPL</li><li>ABBV</li><li>AMZN</li><li>GE</li><li>MELI</li><li>TMO</li><li>FI</li><li>JPM</li><li>AMAT</li><li>FTNT</li><li>IBM</li><li>BRK.B</li><li>HOOD</li><li>GOOG</li><li>AXP</li><li>HEI</li><li>SHW</li><li>META</li><li>ADBE</li><li>REGN</li><li>NVDA</li><li>EL</li><li>BAP</li><li>SIG</li><li>BKNG</li>
               </ul>
             </div>
-            <a class="month-sheet-link" href="Dakota_July_2026_Backtest.csv" download="Dakota_July_2026_Backtest.csv">
-              <span aria-hidden="true">↓</span> Summary Sheet - July
-            </a>
           </article>
 
           <article class="month-card">
@@ -104,7 +101,7 @@
             </div>
             <div class="return-row positive">
               <span>Dakota</span>
-              <strong>+5.375%</strong>
+              <strong>+4.51%</strong>
             </div>
             <div class="ticker-block">
               <h4>Names in the model</h4>
@@ -112,9 +109,6 @@
                 <li>FLEX</li><li>GOOG</li><li>AMZN</li><li>SLB</li><li>CAT</li><li>MSFT</li><li>QCOM</li>
               </ul>
             </div>
-            <a class="month-sheet-link" href="Dakota_August_2026_Contributions.csv" download="Dakota_August_2026_Contributions.csv">
-              <span aria-hidden="true">↓</span> Summary Sheet - August
-            </a>
           </article>
 
           <article class="month-card">
@@ -127,7 +121,7 @@
             </div>
             <div class="return-row negative">
               <span>Dakota</span>
-              <strong>-4.27%</strong>
+              <strong>-3.863%</strong>
             </div>
             <div class="ticker-block">
               <h4>Names in the model</h4>
@@ -135,7 +129,7 @@
                 <li>MELI</li><li>JPM</li><li>IBM</li><li>HD</li><li>HON</li><li>2330-TAI</li><li>AAPL</li><li>MCD</li><li>FTNT</li><li>EL</li>
               </ul>
             </div>
-            <a class="month-sheet-link" href="Dakota_September_2026_Summary.csv" download="Dakota_September_2026_Summary.csv">
+            <a class="month-sheet-link" href="Dakota_September_2026_Target_Audit.csv" download="Dakota_September_2026_Target_Audit.csv">
               <span aria-hidden="true">↓</span> Summary Sheet - September
             </a>
           </article>
@@ -413,8 +407,6 @@
           returns[1].querySelector('strong').textContent = `${row.dakota >= 0 ? '+' : ''}${row.dakota}`;
           returns[1].className = `return-row ${row.dakota >= 0 ? 'positive' : 'negative'}`;
 
-          const badge = card.querySelector('.probability-badge');
-          badge.textContent = formatProbability(row.probability);
           const tickerList = card.querySelector('.ticker-list');
           tickerList.replaceChildren(...row.tickers.length
             ? row.tickers.map((ticker) => {

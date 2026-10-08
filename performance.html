@@ -51,7 +51,7 @@
         </article>
         <article class="performance-metric positive">
           <span>Dakota</span>
-          <strong id="cumulative-dakota">+3.4030%</strong>
+          <strong id="cumulative-dakota">+4.7021%</strong>
         </article>
         <article class="performance-metric">
           <span>Reporting periods</span>
@@ -75,7 +75,7 @@
             <div class="month-card-header">
               <h3>July</h3>
             </div>
-            <div class="return-row positive">
+            <div class="return-row negative">
               <span>S&amp;P 500</span>
               <strong>-0.13%</strong>
             </div>
@@ -121,7 +121,7 @@
             </div>
             <div class="return-row negative">
               <span>Dakota</span>
-              <strong>-4.27%</strong>
+              <strong>-3.863%</strong>
             </div>
             <div class="ticker-block">
               <h4>Names in the model</h4>
@@ -129,6 +129,9 @@
                 <li>MELI</li><li>JPM</li><li>IBM</li><li>HD</li><li>HON</li><li>2330-TAI</li><li>AAPL</li><li>MCD</li><li>FTNT</li><li>EL</li>
               </ul>
             </div>
+            <a class="month-sheet-link" href="Dakota_September_2026_Target_Audit.csv" download="Dakota_September_2026_Target_Audit.csv">
+              <span aria-hidden="true">↓</span> Summary Sheet - September
+            </a>
           </article>
         </div>
       </div>
@@ -404,8 +407,6 @@
           returns[1].querySelector('strong').textContent = `${row.dakota >= 0 ? '+' : ''}${row.dakota}`;
           returns[1].className = `return-row ${row.dakota >= 0 ? 'positive' : 'negative'}`;
 
-          const badge = card.querySelector('.probability-badge');
-          badge.textContent = formatProbability(row.probability);
           const tickerList = card.querySelector('.ticker-list');
           tickerList.replaceChildren(...row.tickers.length
             ? row.tickers.map((ticker) => {

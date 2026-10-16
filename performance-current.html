@@ -13,11 +13,14 @@
     <div class="container header-top">
       <div class="brand">
         <span class="brand-flag">Dakota</span>
+        <span class="brand-divider" aria-hidden="true">|</span>
         <span class="brand-name">Roberto Ollervides</span>
       </div>
-      <nav class="nav-links">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="primary-navigation">
         <a href="index.html">Home</a>
-        <a href="details.html">Learn more</a>
         <a href="methodology.html">Research methodology</a>
         <a href="index.html#contact">Contact</a>
       </nav>
@@ -85,7 +88,7 @@
             <div class="ticker-block">
               <h4>Names in the model</h4>
               <ul class="ticker-list">
-                <li>HROW</li><li>WDAY</li><li>CMG</li><li>005930-KRX</li><li>HD</li><li>CAT</li><li>EOLS</li><li>SIE-ETR</li><li>SHOP</li><li>BAX</li><li>2330-TAI</li><li>AAPL</li><li>ABBV</li><li>AMZN</li><li>GE</li><li>MELI</li><li>TMO</li><li>FI</li><li>JPM</li><li>AMAT</li><li>FTNT</li><li>IBM</li><li>BRK.B</li><li>HOOD</li><li>GOOG</li><li>AXP</li><li>HEI</li><li>SHW</li><li>META</li><li>ADBE</li><li>REGN</li><li>NVDA</li><li>EL</li><li>BAP</li><li>SIG</li><li>BKNG</li>
+                <li>HROW</li><li>WDAY</li><li>CMG</li><li>005930-KRX</li><li>HD</li><li>CAT</li><li>EOLS</li><li>SIE-ETR</li><li>SHOP</li><li>BAX</li><li>005930-KRX</li><li>AAPL</li><li>ABBV</li><li>AMZN</li><li>GE</li><li>MELI</li><li>TMO</li><li>FI</li><li>JPM</li><li>AMAT</li><li>FTNT</li><li>IBM</li><li>BRK.B</li><li>HOOD</li><li>GOOG</li><li>AXP</li><li>HEI</li><li>SHW</li><li>META</li><li>ADBE</li><li>REGN</li><li>NVDA</li><li>EL</li><li>BAP</li><li>SIG</li><li>BKNG</li>
               </ul>
             </div>
             <a class="month-sheet-link" href="Dakota_July_2026_Backtest.csv" download="Dakota_July_2026_Backtest.csv">
@@ -131,7 +134,7 @@
             <div class="ticker-block">
               <h4>Names in the model</h4>
               <ul class="ticker-list">
-                <li>MELI</li><li>JPM</li><li>IBM</li><li>HD</li><li>HON</li><li>2330-TAI</li><li>AAPL</li><li>MCD</li><li>FTNT</li><li>EL</li>
+                <li>MELI</li><li>JPM</li><li>IBM</li><li>HD</li><li>HON</li><li>005930-KRX</li><li>AAPL</li><li>MCD</li><li>FTNT</li><li>EL</li>
               </ul>
             </div>
             <a class="month-sheet-link" href="Dakota_September_2026_Target_Audit.csv" download="Dakota_September_2026_Target_Audit.csv">
@@ -202,7 +205,29 @@
       <p>rollervides.com</p>
     </div>
   </footer>
-
+  <script>
+    const header = document.querySelector('.header-top');
+    const menuButton = document.querySelector('.nav-toggle');
+    menuButton.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('menu-open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        header.classList.remove('menu-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        header.classList.remove('menu-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation menu');
+      }
+    });
+  </script>
 
 </body>
 </html>

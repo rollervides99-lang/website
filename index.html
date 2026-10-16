@@ -11,10 +11,13 @@
     <div class="container header-top">
       <div class="brand">
         <span class="brand-flag">Dakota</span>
+        <span class="brand-divider" aria-hidden="true">|</span>
         <span class="brand-name">Roberto Ollervides</span>
       </div>
-      <nav class="nav-links">
-        <a href="details.html">Learn more</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="primary-navigation">
         <a href="methodology.html">Research methodology</a>
         <a href="performance-current.html">Performance</a>
         <a href="#contact">Contact</a>
@@ -28,7 +31,6 @@
         <p class="hero-text">Dakota delivers disciplined, presentation-ready research with clear signal generation and professional clarity for investment leaders.</p>
         <div class="hero-actions">
           <a class="button" href="#contact">Contact</a>
-          <a class="button secondary" href="details.html">Learn more</a>
         </div>
       </div>
     </div>
@@ -76,5 +78,28 @@
       <p>rollervides.com</p>
     </div>
   </footer>
+  <script>
+    const header = document.querySelector('.header-top');
+    const menuButton = document.querySelector('.nav-toggle');
+    menuButton.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('menu-open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        header.classList.remove('menu-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        header.classList.remove('menu-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation menu');
+      }
+    });
+  </script>
 </body>
 </html>
